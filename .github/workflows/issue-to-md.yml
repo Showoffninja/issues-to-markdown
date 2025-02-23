@@ -40,5 +40,6 @@ jobs:
           BODY: >
             This issue is for Design Specification.
             link: ${{ github.event.issue.html_url }}
+            type: ${{ github.event.action }}
             **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
