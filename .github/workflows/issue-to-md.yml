@@ -4,6 +4,7 @@ on:
     types:
       - edited
       - labeled
+      - closed
 jobs:
   add-comment:
     if: github.event.label.name == 'help wanted'
@@ -34,6 +35,6 @@ jobs:
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
           BODY: >
-            This issue is available for editting to work on.
+            This issue is available for converting to markdown.
             **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
