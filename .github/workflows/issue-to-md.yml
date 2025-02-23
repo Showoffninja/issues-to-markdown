@@ -23,7 +23,7 @@ jobs:
             **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
   add-status:
-    if: github.event.issue.state == 'moved'
+    if: github.event.issue.state == 'moved_columns_in_project'
     runs-on: ubuntu-latest
     permissions:
       issues: write
