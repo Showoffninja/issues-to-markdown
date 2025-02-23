@@ -39,6 +39,6 @@ jobs:
           URL: ${{ github.event.issue.html_url }}
           BODY: >
             This issue is for Design Specification.
-            link: $URL
+            link: ${{ github.event.issue.html_url }}
             **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
