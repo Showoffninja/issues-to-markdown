@@ -23,7 +23,7 @@ jobs:
             **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
   add-status:
-    if: github.event.issue.state == 'closed'
+    if: github.event.issue.state == 'moved'
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -35,6 +35,6 @@ jobs:
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
           BODY: >
-            This issue is available for converting to markdown.
+            This issue is MOVED for converting to markdown.
             **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
