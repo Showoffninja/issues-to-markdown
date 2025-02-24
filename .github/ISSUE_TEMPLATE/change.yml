@@ -4,7 +4,7 @@ title: "[IT Change]: "
 labels: ["change"]
 projects: ["octo-org/1", "octo-org/44"]
 assignees:
-  - ${{ github.event.issue.user.login }}
+  - showoffninja
 body:
   - type: markdown
     attributes:
