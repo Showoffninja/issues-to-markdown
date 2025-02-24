@@ -19,8 +19,8 @@ body:
     attributes:
       value: |
       "## Assessments"
-      
-      "Determine if IT QA approval of implementation, release, and close of the IT change is required:""
+      description: Determine if IT QA approval of implementation, release, and close of the IT change is required
+      placeholder: Determine if IT QA approval of implementation, release, and close of the IT change is required
     validations:
       required: true
   - type: checkboxes
