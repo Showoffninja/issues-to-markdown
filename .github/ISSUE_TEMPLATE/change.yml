@@ -1,0 +1,30 @@
+name: IT Change
+description: File an IT change request.
+title: "[IT Change]: "
+labels: ["change"]
+projects: [${{ github.repository }}"/1"]
+assignees:
+  - ${{ github.event.issue.user.login }}
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # IT change request
+  - type: textarea
+    id: Introduction
+    attributes:
+      label: Business Application ID
+      description: What is the change you are requesting?
+      placeholder: Describe the change you are requesting.
+    validations:
+      required: true
+  - type: checkboxes
+    id: Impact
+    attributes:
+      label: Impact
+      description: What is the impact of this change?
+      options:
+        - Low
+        - Medium
+        - High
+  
