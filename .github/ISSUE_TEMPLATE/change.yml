@@ -18,8 +18,9 @@ body:
     id: assessment
     attributes:
       value: |
-      ## Assessments
-      Determine if IT QA approval of implementation, release, and close of the IT change is required:
+      "## Assessments"
+      
+      "Determine if IT QA approval of implementation, release, and close of the IT change is required:""
     validations:
       required: true
   - type: checkboxes
@@ -28,11 +29,9 @@ body:
       label: "**Does the IT change alter the intended use?**" 
       options:
         - label: "Yes"
-        - lebel: "No"
+        - label: "No"
     validations:
       required: true
-    render: markdown
-
   - type: input
     id: Justification
     attributes:
