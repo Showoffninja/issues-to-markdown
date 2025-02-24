@@ -18,14 +18,14 @@ body:
     id: assessment
     attributes:
       value: |
-        Assessments
+        ## Assessments
         Determine if IT QA approval of implementation, release, and close of the IT change is required
     validations:
       required: true
   - type: checkboxes
     id: change_intended_use
     attributes:
-      label: "**Does the IT change alter the intended use?**" 
+      label: Does the IT change alter the intended use?
       options:
         - label: "Yes"
         - label: "No"
