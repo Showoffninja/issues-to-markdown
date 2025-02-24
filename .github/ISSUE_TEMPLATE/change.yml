@@ -18,7 +18,7 @@ body:
     id: assessment
     attributes:
       value: |
-      "## Assessments"
+        Assessments
       description: Determine if IT QA approval of implementation, release, and close of the IT change is required
       placeholder: Determine if IT QA approval of implementation, release, and close of the IT change is required
     validations:
