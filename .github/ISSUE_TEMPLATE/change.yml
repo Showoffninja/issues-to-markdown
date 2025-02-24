@@ -22,7 +22,7 @@ body:
         Determine if IT QA approval of implementation, release, and close of the IT change is required
     validations:
       required: true
-  - type: checkboxes
+  - type: dropdown
     id: change_intended_use
     attributes:
       label: Does the IT change alter the intended use?
@@ -31,6 +31,33 @@ body:
         - label: "No"
     validations:
       required: true
+  - type: dropdown
+    id: change_gross_risk
+    attributes:
+      label: Does the IT change impact gross risk?
+      options:
+        - label: "Yes"
+        - label: "No"
+    validations:
+      required: true
+  - type: dropdown
+    id: change_supplier_or_product
+    attributes:
+      label: Does the IT change replace any supplier or their product?
+      options:
+        - label: "Yes"
+        - label: "No"
+    validations:
+      required: true
+  - type: checkboxes
+    id: determine_QA
+    attributes:
+      label: "Note: IT QA approval is required if one or more of these questions are answered by “Yes”"
+      description: I determine that IT QA approval of implementation, release, and close of the IT change is required.
+      options:
+        - label: "yes"
+
+
   - type: input
     id: Justification
     attributes:
