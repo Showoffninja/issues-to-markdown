@@ -21,6 +21,9 @@ body:
       options:
         - normal
         - emergency
+      default: 0
+    validations:
+      required: true
   - type: markdown
     id: assessment
     attributes:
