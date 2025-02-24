@@ -22,7 +22,6 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
           BODY: >
             This issue is for Requirement Specification.
-            **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
   add-DS:
     if: github.event.label.name == 'Design Specification'
