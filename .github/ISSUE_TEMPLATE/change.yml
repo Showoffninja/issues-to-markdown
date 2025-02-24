@@ -6,14 +6,10 @@ projects: ["octo-org/1", "octo-org/44"]
 assignees:
   - showoffninja
 body:
-  - type: markdown
-    attributes:
-      value: |
-        # IT change request
   - type: textarea
     id: Introduction
     attributes:
-      label: Business Application ID
+      label: Describe the change you are requesting.
       description: What is the change you are requesting?
       placeholder: Describe the change you are requesting.
     validations:
