@@ -24,7 +24,7 @@ body:
       label: Impact
       description: What is the impact of this change?
       options:
-        - Low
-        - Medium
-        - High
+        - label: "Low"
+        - label: "Medium"
+        - label: "High"
   
