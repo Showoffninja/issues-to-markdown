@@ -2,7 +2,7 @@ name: IT Change
 description: File an IT change request.
 title: "[IT Change]: "
 labels: ["change"]
-projects: [${{ github.repository }}"/1"]
+projects: ["octo-org/1", "octo-org/44"]
 assignees:
   - ${{ github.event.issue.user.login }}
 body:
