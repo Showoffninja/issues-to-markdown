@@ -20,12 +20,19 @@ body:
       value: |
       ## Assessments
       Determine if IT QA approval of implementation, release, and close of the IT change is required:
-      - **Does the IT change alter the intended use?** `Yes/No`
-      - **Does the IT change impact gross risk?** `Yes/No`
-      - **Does the IT change replace any supplier or their product?** `Yes/No`
-      placeholder: What is the context for this change?
     validations:
       required: true
+  - type: checkboxes
+    id: change_intended_use
+    attributes:
+      label: "**Does the IT change alter the intended use?**" 
+      options:
+        - label: "Yes"
+        - lebel: "No"
+    validations:
+      required: true
+    render: markdown
+
   - type: input
     id: Justification
     attributes:
