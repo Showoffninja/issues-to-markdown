@@ -45,8 +45,8 @@ body:
     attributes:
       label: Does the IT change replace any supplier or their product?
       options:
-        - label: "Yes"
-        - label: "No"
+        - "Yes"
+        - "No"
     validations:
       required: true
   - type: checkboxes
