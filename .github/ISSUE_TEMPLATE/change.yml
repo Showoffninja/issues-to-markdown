@@ -62,7 +62,7 @@ body:
       default: 1
     validations:
       required: true
-  - type: checkboxes
+  - type: dropdown
     id: determine_QA
     attributes:
       label: "Note: IT QA approval is required if one or more of these questions are answered by “Yes”"
