@@ -37,6 +37,8 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
           URL: ${{ github.event.issue.html_url }}
           BODY: >
+            ${{ github.issue.body }}
+            ----- appended ------
             This issue is for Design Specification.
             link: ${{ github.event.issue.html_url }} 
             type: ${{ github.event.action }}
