@@ -77,8 +77,7 @@ body:
     id: implementation_plan
     attributes:
       label: Implementation Plan
-      Value: |
-        ## Implementation Plan:
+      Value: "## Implementation Plan:
 
         The solution is qualified according to “Manage IT Infrastructure” (QualityDocs Q216301). The following activities have been deemed commensurate to ensure fitness of intended use of the solution
 
@@ -97,4 +96,4 @@ body:
         - Executes the test plan for the validation environment (see “Test Plan” below).
         - Deploys the solution to the production environment
         - Executes the test plan for the production environment (see “Test Plan” below).
-        12. Add close notes and approve this IT change for release and close by Solution Owner or delegate (always) and IT QA (if required according to assessment). IT QA approves by adding a comment to the IT change, while Solution Owner or delegate approves by changing its status to “Done”.
+        12. Add close notes and approve this IT change for release and close by Solution Owner or delegate (always) and IT QA (if required according to assessment). IT QA approves by adding a comment to the IT change, while Solution Owner or delegate approves by changing its status to “Done”."
