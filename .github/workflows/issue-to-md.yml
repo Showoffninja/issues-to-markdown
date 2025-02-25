@@ -35,9 +35,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
-          URL: ${{ github.event.issue.html_url }}
+          URL: ${{ github.issue.n }}
           BODY: >
-            ${{ github.event.issue.body }}
+            ${{ github.event.issue. }}
             ----- appended ------
             This issue is for Design Specification.
             link: ${{ github.event.issue.html_url }} 
