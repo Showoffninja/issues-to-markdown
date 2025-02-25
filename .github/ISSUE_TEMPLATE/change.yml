@@ -77,4 +77,6 @@ body:
     id: implementation_plan
     attributes:
       label: Implementation Plan
+      description: How will the IT change be implemented?
+      placeholder: Describe the implementation plan.
       Value: "## Implementation Plan:"
