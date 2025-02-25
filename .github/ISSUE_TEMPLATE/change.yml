@@ -80,9 +80,9 @@ body:
       description: How will the change be implemented?
       value:
         "The solution is qualified according to “Manage IT Infrastructure” (QualityDocs Q216301). The following activities have been deemed commensurate to ensure fitness of intended use of the solution
-
-        1. Approve this IT change for implementation by Solution Owner or delegate by changing its status to “In Progress”.
-        2. If required according to above assessment, approve this IT change for implementation by IT QA by adding a comment to the IT change.
+        <br>
+        1. Approve this IT change for implementation by Solution Owner or delegate by changing its status to “In Progress”. <br>
+        2. If required according to above assessment, approve this IT change for implementation by IT QA by adding a comment to the IT change. <br>
         3. Update and attest IT Risk Assessment (if needed).
         4. Update requirements and verification test cases in feature files (if needed).
         5. Update design specifications and configuration specifications as markdown files (if needed).
