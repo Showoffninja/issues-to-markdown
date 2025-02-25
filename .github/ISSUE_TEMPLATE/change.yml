@@ -1,0 +1,91 @@
+name: IT Change
+description: File an IT change request.
+title: "[IT Change]: "
+labels: ["change"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - showoffninja
+body:
+  - type: textarea
+    id: Introduction
+    attributes:
+      label: What will be changed
+      description: What is the change you are requesting?
+      placeholder: Describe the change you are requesting.
+    validations:
+      required: true
+  - type: dropdown
+    id: change_classification
+    attributes:
+      label: Choose IT Change category?
+      options:
+        - normal
+        - emergency
+      default: 0
+    validations:
+      required: true
+  - type: markdown
+    id: assessment
+    attributes:
+      value: |
+        ## Assessments
+        Determine if IT QA approval of implementation, release, and close of the IT change is required
+    validations:
+      required: true
+  - type: dropdown
+    id: change_intended_use
+    attributes:
+      label: Does the IT change alter the intended use?
+      options:
+        - "Yes"
+        - "No"
+      default: 1
+    validations:
+      required: true
+  - type: dropdown
+    id: change_gross_risk
+    attributes:
+      label: Does the IT change impact gross risk?
+      options:
+        - "Yes"
+        - "No"
+      default: 1
+    validations:
+      required: true
+  - type: dropdown
+    id: change_supplier_or_product
+    attributes:
+      label: Does the IT change replace any supplier or their product?
+      options:
+        - "Yes"
+        - "No"
+      default: 1
+    validations:
+      required: true
+  - type: checkboxes
+    id: determine_QA
+    attributes:
+      label: "Note: IT QA approval is required if one or more of these questions are answered by “Yes”"
+      description: I determine that IT QA approval of implementation, release, and close of the IT change is required.
+      options:
+        - label: "yes"
+
+
+  - type: input
+    id: Justification
+    attributes:
+      label: Justification
+      description: Why is this change necessary?
+      placeholder: Why is this change necessary?
+    validations:
+      required: true
+  - type: checkboxes
+    id: Impact
+    attributes:
+      label: Impact
+      description: What is the impact of this change?
+      options:
+        - label: "Low"
+        - label: "Medium"
+        - label: "High"
+  
