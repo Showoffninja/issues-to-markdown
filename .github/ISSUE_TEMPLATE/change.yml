@@ -73,7 +73,7 @@ body:
       default: 1
     validations:
       required: true
-  - type: markdown
+  - type: textarea
     id: implementation_plan
     attributes:
       value: |
