@@ -79,7 +79,7 @@ body:
       value: |
         ## Implementation Plan:
 
-        he solution is qualified according to “Manage IT Infrastructure” (QualityDocs Q216301). The following activities have been deemed commensurate to ensure fitness of intended use of the solution
+        The solution is qualified according to “Manage IT Infrastructure” (QualityDocs Q216301). The following activities have been deemed commensurate to ensure fitness of intended use of the solution
 
         1. Approve this IT change for implementation by Solution Owner or delegate by changing its status to “In Progress”.
         2. If required according to above assessment, approve this IT change for implementation by IT QA by adding a comment to the IT change.
@@ -97,3 +97,4 @@ body:
         - Deploys the solution to the production environment
         - Executes the test plan for the production environment (see “Test Plan” below).
         12. Add close notes and approve this IT change for release and close by Solution Owner or delegate (always) and IT QA (if required according to assessment). IT QA approves by adding a comment to the IT change, while Solution Owner or delegate approves by changing its status to “Done”.
+    render: markdown
