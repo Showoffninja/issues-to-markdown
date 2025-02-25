@@ -76,7 +76,8 @@ body:
   - type: textarea
     id: implementation_plan
     attributes:
-      value: |
+      label: Implementation Plan
+      placeholder: |
         ## Implementation Plan:
 
         The solution is qualified according to “Manage IT Infrastructure” (QualityDocs Q216301). The following activities have been deemed commensurate to ensure fitness of intended use of the solution
