@@ -68,8 +68,8 @@ body:
       label: "Note: IT QA approval is required if one or more of these questions are answered by “Yes”"
       description: Does the IT change alter a healthcare-regulated process, or can it alter GxP data?
       options:
-        - label: "yes"
-        - label: "no"
+        - "yes"
+        - "no"
       default: 1
     validations:
       required: true
