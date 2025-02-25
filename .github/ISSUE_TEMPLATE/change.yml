@@ -74,11 +74,28 @@ body:
     validations:
       required: true
   - type: textarea
-    id: what-happened
+    id: implenetation_plan
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: Implementation Plan
+      description: How will the change be implemented?
+      value:
+        "he solution is qualified according to “Manage IT Infrastructure” (QualityDocs Q216301). The following activities have been deemed commensurate to ensure fitness of intended use of the solution
+
+        1. Approve this IT change for implementation by Solution Owner or delegate by changing its status to “In Progress”.
+        2. If required according to above assessment, approve this IT change for implementation by IT QA by adding a comment to the IT change.
+        3. Update and attest IT Risk Assessment (if needed).
+        4. Update requirements and verification test cases in feature files (if needed).
+        5. Update design specifications and configuration specifications as markdown files (if needed).
+        6. Update Operating and Maintenance description (if needed).
+        7. Update user guides (if needed).
+        8. Implement the required changes to the solution using an agile approach.
+        9. Create a pull request linked to this IT change containing all changes to code and documentation.
+        10. Perform peer review and complete the pull request.
+        11. Execute verification through an [automated release pipeline](<(https://github.com/innersource-nn/o2-immuta/actions/workflows/main.yaml)>), which:
+        - Builds the solution and deploys it to the validation environment.
+        - Executes the test plan for the validation environment (see “Test Plan” below).
+        - Deploys the solution to the production environment
+        - Executes the test plan for the production environment (see “Test Plan” below).
+        12. Add close notes and approve this IT change for release and close by Solution Owner or delegate (always) and IT QA (if required according to assessment). IT QA approves by adding a comment to the IT change, while Solution Owner or delegate approves by changing its status to “Done”."
     validations:
       required: true
