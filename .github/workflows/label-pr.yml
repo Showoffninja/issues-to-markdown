@@ -7,7 +7,7 @@ on:
 jobs:
   label:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: test
     steps:
       - run: echo "this is the link"
       - uses: actions/checkout@main
