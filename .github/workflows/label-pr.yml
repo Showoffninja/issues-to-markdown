@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     steps:
-      - uses: showoffninja/qms-manual-approval@1.0.0
+      - uses: showoffninja/qms-manual-approval@main
         with:
           secret: ${{ secrets.github.TOKEN }}
-          approvers: user1,user2,org-team1
+          approvers: showoffninja
           minimum-approvals: 1
           issue-title: "Deploying v1.3.5 to prod from staging"
           issue-body: "Please approve or deny the deployment of version v1.3.5."
