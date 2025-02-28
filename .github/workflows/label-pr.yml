@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     steps:
-      - uses: showoffninja/manual-approval-action@1.0.0
+      - uses: showoffninja/manual-approval-action@main
         with:
           secret: ${{ github.TOKEN }}
           approvers: Showoffninja
