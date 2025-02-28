@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: showoffninja/qms-manual-approval@1.0.0
         with:
-          secret: ${{ github.TOKEN }}
+          secret: ${{ secrets.github.TOKEN }}
           approvers: user1,user2,org-team1
           minimum-approvals: 1
           issue-title: "Deploying v1.3.5 to prod from staging"
