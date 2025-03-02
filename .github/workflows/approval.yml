@@ -24,12 +24,13 @@ jobs:
           echo "PENDING_DEPLOYMENTS=$PENDING_DEPLOYMENTS" >> $GITHUB_ENV
           
       - name: debugging env
-        run: echo "Pending Deployments: ${{ env.PENDING_DEPLOYMENTS }}"
+        run: |
+          echo "debug: $PENDING_DEPLYMENT" 
 
       - name: Approve pending deployments
         if: ${{ env.PENDING_DEPLOYMENTS != '' }}
         run: |
-          IFS=$'\n' read -rd '' -a DEPLOYMENT_IDS <<<"$PENDING_DEPLOYMENTS"
+          IFS=$'\n' read -r -d '' -a DEPLOYMENT_IDS <<< "${{ env.PENDING_DEPLOYMENTS }}"
           for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             echo "Approving deployment ID: $DEPLOYMENT_ID..."
             curl -s --request POST \
