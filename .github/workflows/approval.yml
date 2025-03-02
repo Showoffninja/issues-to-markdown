@@ -19,7 +19,7 @@ jobs:
           PENDING_DEPLOYMENTS=$(curl -s --request GET \
             --url https://api.github.com/repos/${{ github.repository }}/deployments \
             --header "Accept: application/vnd.github.v3+json" \
-            --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" | jq -r '.[] | select(.statuses_url) | select(.state == "in_progress") | .id')
+            --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" | jq -r '.[] | select(.statuses_url) | .id')
           echo "Pending Deployments: $PENDING_DEPLOYMENTS"
           echo "PENDING_DEPLOYMENTS=$PENDING_DEPLOYMENTS" >> $GITHUB_ENV
 
