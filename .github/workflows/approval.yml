@@ -1,0 +1,36 @@
+name: Review and Approve Pending Deployments
+
+on:
+  workflow_dispatch:
+
+jobs:
+  review_and_approve:
+    runs-on: ubuntu-latest
+    permissions:
+      deployments: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Get pending deployments
+        id: get_pending_deployments
+        run: |
+          echo "Retrieving pending deployments..."
+          PENDING_DEPLOYMENTS=$(curl -s --request GET \
+            --url https://api.github.com/repos/${{ github.repository }}/deployments \
+            --header "Accept: application/vnd.github.v3+json" \
+            --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" | jq -r '.[] | select(.statuses_url) | select(.state == "pending") | .id')
+          echo "Pending Deployments: $PENDING_DEPLOYMENTS"
+          echo "PENDING_DEPLOYMENTS=$PENDING_DEPLOYMENTS" >> $GITHUB_ENV
+
+      - name: Approve pending deployments
+        if: ${{ env.PENDING_DEPLOYMENTS != '' }}
+        run: |
+          for DEPLOYMENT_ID in ${{ env.PENDING_DEPLOYMENTS }}; do
+            echo "Approving deployment ID: $DEPLOYMENT_ID..."
+            curl -s --request POST \
+              --url https://api.github.com/repos/${{ github.repository }}/deployments/$DEPLOYMENT_ID/statuses \
+              --header "Accept: application/vnd.github.v3+json" \
+              --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              --data '{"state": "success", "description": "Approved by GitHub Action", "environment": "production"}'
+          done
