@@ -21,17 +21,16 @@ jobs:
             --header "Accept: application/vnd.github.v3+json" \
             --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" | jq -r '.[] | select(.statuses_url != null) | .id')
           echo "Pending Deployments: $PENDING_DEPLOYMENTS"
-          echo "The value of PENDING_DEPLOYMENTS is: $PENDING_DEPLOYMENTS"
-          echo "PENDING_DEPLOYMENTS=$PENDING_DEPLOYMENTS" >> $GITHUB_ENV
-          
-      - name: debugging env
+          echo "pending_deployments=$(echo "$PENDING_DEPLOYMENTS" | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: debugging output
         run: |
-          echo "debug: ${{ env.PENDING_DEPLOYMENTS }}" 
+          echo "debug: ${{ steps.get_pending_deployments.outputs.pending_deployments }}"
 
       - name: Approve pending deployments
+        if: steps.get_pending_deployments.outputs.pending_deployments != ''
         run: |
-          IFS=$'\n' read -r -d '' -a DEPLOYMENT_IDS <<< "${{ env.PENDING_DEPLOYMENTS }}"
-          for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
+          for DEPLOYMENT_ID in ${{ steps.get_pending_deployments.outputs.pending_deployments }}; do
             echo "Approving deployment ID: $DEPLOYMENT_ID..."
             curl -s --request POST \
               --url https://api.github.com/repos/${{ github.repository }}/deployments/$DEPLOYMENT_ID/statuses \
