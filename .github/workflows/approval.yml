@@ -26,11 +26,11 @@ jobs:
           
       - name: debugging env
         run: |
-          echo "debug: $PENDING_DEPLOYMENTS" 
+          echo "debug: ${{ env.PENDING_DEPLOYMENTS }}" 
 
       - name: Approve pending deployments
         run: |
-          IFS=$'\n' read -r -d '' -a DEPLOYMENT_IDS <<< "$PENDING_DEPLOYMENTS"
+          IFS=$'\n' read -r -d '' -a DEPLOYMENT_IDS <<< "${{ env.PENDING_DEPLOYMENTS }}"
           for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             echo "Approving deployment ID: $DEPLOYMENT_ID..."
             curl -s --request POST \
