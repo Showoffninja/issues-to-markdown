@@ -21,6 +21,7 @@ jobs:
             --header "Accept: application/vnd.github.v3+json" \
             --header "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" | jq -r '.[] | select(.statuses_url != null) | .id')
           echo "Pending Deployments: $PENDING_DEPLOYMENTS"
+          echo "The value of PENDING_DEPLOYMENTS is: ${{ env.PENDING_DEPLOYMENTS }}"
           echo "PENDING_DEPLOYMENTS=$PENDING_DEPLOYMENTS" >> $GITHUB_ENV
           
       - name: debugging env
