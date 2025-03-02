@@ -29,7 +29,6 @@ jobs:
           echo "debug: $PENDING_DEPLOYMENTS" 
 
       - name: Approve pending deployments
-        if: $PENDING_DEPLOYMENTS != ''
         run: |
           IFS=$'\n' read -r -d '' -a DEPLOYMENT_IDS <<< "$PENDING_DEPLOYMENTS"
           for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
