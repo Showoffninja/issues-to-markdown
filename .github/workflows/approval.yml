@@ -26,7 +26,7 @@ jobs:
           
       - name: debugging env
         run: |
-          echo "debug: $PENDING_DEPLYMENT" 
+          echo "debug: $PENDING_DEPLOYMENTS" 
 
       - name: Approve pending deployments
         if: ${{ PENDING_DEPLOYMENTS != '' }}
