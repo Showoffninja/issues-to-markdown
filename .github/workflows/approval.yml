@@ -24,7 +24,7 @@ jobs:
           echo "PENDING_DEPLOYMENTS=$PENDING_DEPLOYMENTS" >> $GITHUB_ENV
           
       - name: debugging env
-          run: echo "Pending Deployments: ${{ env.PENDING_DEPLOYMENTS }}"
+        run: echo "Pending Deployments: ${{ env.PENDING_DEPLOYMENTS }}"
 
       - name: Approve pending deployments
         if: ${{ env.PENDING_DEPLOYMENTS != '' }}
