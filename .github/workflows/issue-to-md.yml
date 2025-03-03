@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get run id
-        run: echo ${{ github.event.inputs.run_id }}
+        run: echo github.event.inputs.run_id
     
   add-URS:
     environment: test
