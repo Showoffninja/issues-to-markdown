@@ -24,7 +24,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const runId = ${{ github.event.inputs.run_id }};
+            const runId = parseInt('${{ github.event.inputs.run_id }}');
+            if (isNaN(runId)) {
+              core.setFailed('Invalid run ID');
+              return;
+            }
 
             try {
               const pendingDeploymentsResponse = await github.rest.actions.getPendingDeploymentsForRun({
@@ -32,20 +36,18 @@ jobs:
                 repo: context.repo.repo,
                 run_id: runId
               });
-              
+
               const pendingDeployments = pendingDeploymentsResponse.data;
               console.log(`Found ${pendingDeployments.length} pending deployments`);
-              
+
               if (pendingDeployments.length === 0) {
-                console.log('No pending deployments found for this run');
+                core.setFailed('No pending deployments found for this run');
                 return;
               }
-              
+
               // Get environment IDs
               const environmentIds = pendingDeployments.map(deployment => deployment.environment.id);
               core.setOutput('environment_ids', JSON.stringify(environmentIds));
-              
-              return environmentIds;
             } catch (error) {
               core.setFailed(`Error getting pending deployments: ${error.message}`);
             }
@@ -56,9 +58,14 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const runId = ${{ github.event.inputs.run_id }};
+            const runId = parseInt('${{ github.event.inputs.run_id }}');
             const comment = '${{ github.event.inputs.comment }}';
             const environmentIds = JSON.parse('${{ steps.pending.outputs.environment_ids }}');
+
+            if (isNaN(runId)) {
+              core.setFailed('Invalid run ID');
+              return;
+            }
 
             try {
               const approvalResponse = await github.rest.actions.reviewPendingDeploymentsForRun({
@@ -69,7 +76,7 @@ jobs:
                 state: 'approved',
                 comment: comment
               });
-              
+
               console.log('Deployment approved successfully');
             } catch (error) {
               core.setFailed(`Error approving deployment: ${error.message}`);
