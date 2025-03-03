@@ -10,6 +10,7 @@ on:
         description: "Comment for the deployment approval"
         required: true
         default: "Deployment approved"
+
 permissions:
   deployments: write
   statuses: write
@@ -50,6 +51,7 @@ jobs:
               core.setOutput('environment_ids', JSON.stringify(environmentIds));
             } catch (error) {
               core.setFailed(`Error getting pending deployments: ${error.message}`);
+              console.log(`Full error details: ${JSON.stringify(error, null, 2)}`);
             }
 
       - name: Approve deployments
@@ -80,4 +82,5 @@ jobs:
               console.log('Deployment approved successfully');
             } catch (error) {
               core.setFailed(`Error approving deployment: ${error.message}`);
+              console.log(`Full error details: ${JSON.stringify(error, null, 2)}`);
             }
