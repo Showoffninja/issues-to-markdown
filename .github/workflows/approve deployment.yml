@@ -10,6 +10,9 @@ on:
         description: "Comment for the deployment approval"
         required: true
         default: "Deployment approved"
+permissions:
+  deployments: write
+  statuses: write
 
 jobs:
   approve:
