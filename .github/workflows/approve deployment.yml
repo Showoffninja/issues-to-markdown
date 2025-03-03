@@ -10,9 +10,9 @@ on:
         description: "Comment for the deployment approval"
         required: true
         default: "Deployment approved"
+
 permissions:
   deployments: write
-  statuses: write
 
 jobs:
   approve:
@@ -24,7 +24,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const runId = ${{ github.event.inputs.run_id }};
+            const runId = core.getInput('run_id');
 
             try {
               const pendingDeploymentsResponse = await github.rest.actions.getPendingDeploymentsForRun({
@@ -47,6 +47,7 @@ jobs:
               
               return environmentIds;
             } catch (error) {
+              console.log(error);
               core.setFailed(`Error getting pending deployments: ${error.message}`);
             }
 
@@ -56,9 +57,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const runId = ${{ github.event.inputs.run_id }};
-            const comment = '${{ github.event.inputs.comment }}';
-            const environmentIds = JSON.parse('${{ steps.pending.outputs.environment_ids }}');
+            const runId = core.getInput('run_id');
+            const comment = core.getInput('comment');
+            const environmentIds = JSON.parse(core.getInput('environment_ids'));
 
             try {
               const approvalResponse = await github.rest.actions.reviewPendingDeploymentsForRun({
@@ -72,5 +73,6 @@ jobs:
               
               console.log('Deployment approved successfully');
             } catch (error) {
+              console.log(error);
               core.setFailed(`Error approving deployment: ${error.message}`);
             }
