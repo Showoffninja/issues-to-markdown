@@ -12,7 +12,7 @@ jobs:
         run: echo "The run_id is ${{ github.run_id }}"
         shell: bash
   approve:
-    environment: development
+    environment: test
     runs-on: ubuntu-latest
     steps:
       - name: Starting pending deployments
