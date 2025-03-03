@@ -8,8 +8,8 @@ on:
       - labeled
       - closed
 jobs:
-  environment: test
   add-URS:
+    environment: test
     if: github.event.label.name == 'Requirement Specification'
     runs-on: ubuntu-latest
     permissions:
