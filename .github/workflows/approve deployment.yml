@@ -42,20 +42,22 @@ jobs:
               console.log(`Found ${pendingDeployments.length} pending deployments`);
 
               if (pendingDeployments.length === 0) {
-                core.setFailed('No pending deployments found for this run');
+                core.setOutput('has_pending_deployments', 'false');
+                console.log('No pending deployments found for this run');
                 return;
               }
 
               // Get environment IDs
               const environmentIds = pendingDeployments.map(deployment => deployment.environment.id);
               core.setOutput('environment_ids', JSON.stringify(environmentIds));
+              core.setOutput('has_pending_deployments', 'true');
             } catch (error) {
               core.setFailed(`Error getting pending deployments: ${error.message}`);
               console.log(`Full error details: ${JSON.stringify(error, null, 2)}`);
             }
 
       - name: Approve deployments
-        if: steps.pending.outputs.environment_ids
+        if: steps.pending.outputs.has_pending_deployments == 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
